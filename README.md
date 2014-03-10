@@ -30,6 +30,6 @@ Package](http://www.neilvandyke.org/racket-sicp/). Sometimes I just want a
 complete image of the reductions that have taken place up to a crash.  Despite
 its paltry feature set, I've found the best tool for this to be the ancient
 [Edwin
-editor](https://www.gnu.org/software/mit-scheme/documentation/mit-scheme-user/Edwin.html)
+editor](https://www.gnu.org/software/mit-scheme/documentation/mit-scheme-user/Edwin.html)!
 Edwin ships with [mit-scheme](www.gnu.org/software/mit-scheme/), and it's the
 editor the SICP class in the video lectures used!
