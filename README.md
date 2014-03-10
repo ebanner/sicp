@@ -1,4 +1,4 @@
-# [Structure and Interpretation of Computer Programs](https://mitpress.mit.edu/sicp/)
+## [Structure and Interpretation of Computer Programs](https://mitpress.mit.edu/sicp/)
 
 Here are solutions to problems from the landmark text [Structure and
 Interpretation of Computer Programs.](https://mitpress.mit.edu/sicp/)
