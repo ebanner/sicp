@@ -1,6 +1,6 @@
 ## [Structure and Interpretation of Computer Programs](https://mitpress.mit.edu/sicp/)
 
-Here are solutions to problems from the landmark text [Structure and
+Here are solutions to exercises from the landmark text [Structure and
 Interpretation of Computer Programs](https://mitpress.mit.edu/sicp/), written
 by [Gerald Jay Sussman](https://en.wikipedia.org/wiki/Gerald_Jay_Sussman) and
 [Harold Abelson](https://en.wikipedia.org/wiki/Hal_Abelson). I am indebted to
