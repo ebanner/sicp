@@ -20,7 +20,7 @@ having having a much easier time this time around (and having a lot more fun!).
 
 I am using various tools for Scheme development, primarily
 [emacs](https://www.gnu.org/software/emacs/) with the
-[Evil](http://www.emacswiki.org/emacs/Evil) plugin (I find emacs totally
+[Evil](http://www.emacswiki.org/emacs/Evil) plugin (I find emacs completely
 unusable with its default navigation keys), along with the
 [mit-scheme](www.gnu.org/software/mit-scheme/) package. Whenever I need extra
 debugging capabilities (the emacs/mit-scheme debugger is terrible), I've been
