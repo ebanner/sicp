@@ -15,7 +15,7 @@ lasting impression on me. I thought at the time the material was important, even
 though I couldn't grasp most of it.
 
 With an undergraduate education in Computer Science under my belt I finally feel
-like I'm up to the challenge to tackle the content. And, in fact, I have been
+like I'm up to the challenge of tackling the book. And, in fact, I have been
 having having a much easier time this time around (and having a lot more fun!).
 
 I am using various tools for Scheme development, primarily
