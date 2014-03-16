@@ -470,7 +470,7 @@
 ;: (map square (list 1 2 3 4 5))
 
 (define (filter predicate sequence)
-  (cond ((null? sequence) nil)
+  (cond ((null? sequence) '())
         ((predicate (car sequence))
          (cons (car sequence)
                (filter predicate (cdr sequence))))
@@ -490,7 +490,7 @@
 
 (define (enumerate-interval low high)
   (if (> low high)
-      nil
+      '()
       (cons low (enumerate-interval (+ low 1) high))))
 
 ;: (enumerate-interval 2 7)
@@ -591,7 +591,7 @@
 ;:                  (enumerate-interval 1 n)))
 
 (define (flatmap proc seq)
-  (accumulate append nil (map proc seq)))
+  (accumulate append '() (map proc seq)))
 
 (define (prime-sum? pair)
   (prime? (+ (car pair) (cadr pair))))
