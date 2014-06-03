@@ -46,7 +46,7 @@
 ;;; to implement a new generic method, along with keeping up with
 ;;; everyone that implements the method by manually adding their type
 ;;; in the colossal cond expression. I would say data-directed
-;;; programming and message-passing tie for first place here. In both
+;;; programming and message-passikng tie for first place here. In both
 ;;; instances the manager is automated and the implementors don't have
 ;;; to do much additional work. It really comes down to how much
 ;;; wrapping your data object in a procedure and coding a dispatch
