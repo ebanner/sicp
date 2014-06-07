@@ -45,3 +45,11 @@
 	((predicate? (car list)) (cons (car list) (filter (cdr list)
 							  predicate?)))
 	(else (filter (cdr list) predicate?))))
+
+;;; For an example of how `apply-generic' is insufficient for even the
+;;; two case scenario, consider the case when there is a mixed type
+;;; procedure in the procedure table indexed by '(type2 type1). If
+;;; that permutation of types existed in the table, it would have been
+;;; missed by `apply-generic'. In fact any mixed-type operation will
+;;; be missed as long as it's not the permutation that is initially
+;;; passed into `apply-generic'.
