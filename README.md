@@ -13,10 +13,11 @@ Back when I was a freshman in college, my initial attempt at the book
 was thwarted by its abstract concepts and crushingly difficult
 exercises. Together these barriers forced me to abandon the book.
 
-The book did, however, leave a lasting impression on me. What little I
-did understand from the book seemed to help me a few times during my
-undergrad, leading me to say "I learned that in the first chapter of
-SICP!" on more than one occastion.
+The book did, however, leave a lasting impression on me. The few
+concepts I did grasp (e.g. applicative-order vs. normal-order
+evaluation) seemed to help me a disporportionate amount in my later
+years of undergrad, leading me to think "I learned that in the first
+chapter of SICP!" on more than one occastion.
 
 I always thought if I could get back to the book it would unlock many
 more of its secrets. Since then always had a certain reverence of the
