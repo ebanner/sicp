@@ -1,4 +1,4 @@
-### [Structure and Interpretation of Computer Programs](https://mitpress.mit.edu/sicp/)
+## Structure and Interpretation of Computer Programs
 
 Here are solutions to exercises from the landmark text [Structure and
 Interpretation of Computer Programs](https://mitpress.mit.edu/sicp/),
@@ -9,12 +9,18 @@ these legends for crafting such a fine text along with a set of
 unforgettable [video
 lectures.](http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-001-structure-and-interpretation-of-computer-programs-spring-2005/video-lectures/)
 
-Back when I was a freshman in college, I attempted to make my way
-through this book. I immediately found most of the content too
-abstract and crushingly difficult, which led me to abandon the
-book. It did, however, leave a lasting impression on me. It left me
-with a sense that the material in it was important, even though I
-couldn't grasp most of it.
+Back when I was a freshman in college, my initial attempt at the book
+was thwarted by its abstract concepts and crushingly difficult
+exercises. Together these barriers forced me to abandon the book.
+
+The book did, however, leave a lasting impression on me. What little I
+did understand from the book seemed to help me a few times during my
+undergrad, leading me to say "I learned that in the first chapter of
+SICP!" on more than one occastion.
+
+I always thought if I could get back to the book it would unlock many
+more of its secrets. Since then always had a certain reverence of the
+book that's bordered on worship at times.
 
 With an undergraduate education in Computer Science under my belt I
 started going through this tome once more and have found that I am
