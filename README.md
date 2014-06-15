@@ -11,15 +11,14 @@ lectures.](http://ocw.mit.edu/courses/electrical-engineering-and-computer-scienc
 
 Back when I was a freshman in college, I attempted to make my way
 through this book. I immediately found most of the content too
-abstract and crushingly difficult and abandoned the book after a short
-amount of time. It did, however, leave a lasting impression on me. I
-thought at the time the material was important, even though I couldn't
-grasp most of it.
+abstract and crushingly difficult, which led me to abandon the
+book. It did, however, leave a lasting impression on me. It left me
+with a sense that the material in it was important, even though I
+couldn't grasp most of it.
 
 With an undergraduate education in Computer Science under my belt I
-finally feel like I'm up to the challenge of tackling this book. And,
-in fact, I have been having having a much easier time this time around
-(and having a lot more fun!).
+started going through this tome once more and have found that I am
+finally able to grasp the material. What's more is it's actually been fun!
 
 For Scheme development, I'm using [Geiser
 mode](http://www.nongnu.org/geiser/) in
