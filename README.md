@@ -32,6 +32,6 @@ mode](http://www.nongnu.org/geiser/) in
 [emacs](http://www.gnu.org/software/emacs/) with
 [Guile](http://www.gnu.org/software/guile/) as my Scheme
 implementation. I chose Guile over mit-scheme because I like Guile's
-debugging interfact better. For editing Scheme code, I'm using the
+debugging interface better. For editing Scheme code, I'm using the
 amazing [ParEdit mode](http://www.emacswiki.org/emacs/ParEdit)
 mode. It makes editing Lisp code a joy.
