@@ -12,6 +12,6 @@
 ;;; 2)) will always be cached by the time we get around to evaluating
 ;;; it. Since it only takes constant time for such a lookup, the whole
 ;;; kitten-cabootle will take apprximately 3n steps to complete, which
-;;; is O(n)v
+;;; is O(n)
 
 
