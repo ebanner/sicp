@@ -9,9 +9,10 @@ these legends for crafting such a fine text along with a set of
 unforgettable [video
 lectures.](http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-001-structure-and-interpretation-of-computer-programs-spring-2005/video-lectures/)
 
-Back when I was a freshman in college, my initial attempt at the book
-was thwarted by its abstract concepts and crushingly difficult
-exercises. Together these barriers forced me to abandon the book.
+Back when I was a freshman in college, my initial attempt through was
+unsuccessful. The concepts in the book seemed overly abstract and the
+exercises incredibly difficult. For these reasons I put the book down
+and moved onto other things.
 
 The book did, however, leave a lasting impression on me. The few
 concepts I did grasp (e.g. applicative-order vs. normal-order
