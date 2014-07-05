@@ -309,6 +309,7 @@
 	(list '- -)
 	(list '* *)
 	(list '/ /)
+	(list 'display display)
 ;;      more primitives
         ))
 
