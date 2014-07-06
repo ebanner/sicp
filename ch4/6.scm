@@ -20,6 +20,10 @@
 ;;;
 ;;; No matter. This exercise taught me more about debugging with
 ;;; `mit-scheme' than any previous exercise ;)
+;;;
+;;; Update: It works now. I had an extra set of parens around
+;;; `(eval let->combination exp) env)'. So I was trying to invoke the
+;;; value of the expression...
 (define (eval exp env)
   (cond ((self-evaluating? exp) exp)
         ((variable? exp) (lookup-variable-value exp env))
@@ -27,7 +31,7 @@
         ((assignment? exp) (eval-assignment exp env))
         ((definition? exp) (eval-definition exp env))
         ((if? exp) (eval-if exp env))
-	((let? exp) ((eval (let->combination exp) env)))
+	((let? exp) (eval (let->combination exp) env))
         ((lambda? exp)
          (make-procedure (lambda-parameters exp)
                          (lambda-body exp)
