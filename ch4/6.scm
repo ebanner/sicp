@@ -47,16 +47,13 @@
 
 (define (let? exp) (tagged-list? exp 'let))
 (define (let-tuples exp) (cadr exp))
-(define (let-body exp) (caddr exp))
+(define (let-body exp) (cddr exp))
 (define (tuple-variable tuple) (car tuple))
 (define (tuple-expression tuple) (cadr tuple))
 
 (define (let->combination exp)
   (let ((tuples (let-tuples exp)))
-    (make-combination
-     (list 'lambda (map tuple-variable tuples) (let-body exp))
+    (cons
+     (make-lambda (map tuple-variable tuples) (let-body exp))
      (map tuple-expression tuples))))
-
-(define (make-combination a b)
-  (append (list a) b))
 
