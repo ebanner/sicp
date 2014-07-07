@@ -311,6 +311,7 @@
 	(list '/ /)
 	(list 'display display)
 	(list 'equal? equal?)
+	(list '< <)
 ;;      more primitives
         ))
 
