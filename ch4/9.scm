@@ -14,6 +14,7 @@
 	((for? exp) (eval (for->let-while exp) env))
 	((until? exp) (eval (until->while exp) env))
 	((when? exp) (eval (when->if exp) env))
+	((unless? exp) (eval (unless->if exp) env))
 	((lambda? exp)
          (make-procedure (lambda-parameters exp)
                          (lambda-body exp)
@@ -131,5 +132,24 @@
   (let ((condition (when-condition exp))
 	(body (when-body exp)))
     (make-if condition
+	     body
+	     'not-evaluated)))
+
+;;;
+;;; (unless <condition> <body>)
+;;;
+;;; This is a shout out to Larry Wall and all you Perl hackers out there...
+;;;
+;;; Derived expression:
+;;;
+;;; (if (not <condition>) <body)
+;;;
+(define (unless? exp) (tagged-list? exp 'unless))
+(define (unless-condition exp) (cadr exp))
+(define (unless-body exp) (caddr exp))
+(define (unless->if exp)
+  (let ((condition (unless-condition exp))
+	(body (unless-body exp)))
+    (make-if (list 'not condition)
 	     body
 	     'not-evaluated)))
