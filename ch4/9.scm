@@ -13,6 +13,7 @@
 	((while? exp) (eval-while exp env))
 	((for? exp) (eval (for->let-while exp) env))
 	((until? exp) (eval (until->while exp) env))
+	((when? exp) (eval (when->if exp) env))
 	((lambda? exp)
          (make-procedure (lambda-parameters exp)
                          (lambda-body exp)
@@ -111,3 +112,24 @@
 	(body (until-body exp)))
     (make-while (list 'not condition)
 		body)))
+
+;;;
+;;; (when <condition> <body>)
+;;;
+;;; I know that a variant of this is in Emacs lisp...
+;;;
+;;; This will be implemented as a derived expressions. It becomes:
+;;;
+;;; (if <condition>
+;;;   <body>
+;;;   'not-evaluated)
+;;;
+(define (when? exp) (tagged-list? exp 'when))
+(define (when-condition exp) (cadr exp))
+(define (when-body exp) (caddr exp))
+(define (when->if exp)
+  (let ((condition (when-condition exp))
+	(body (when-body exp)))
+    (make-if condition
+	     body
+	     'not-evaluated)))
