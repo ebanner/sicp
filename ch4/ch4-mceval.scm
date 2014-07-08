@@ -312,6 +312,7 @@
 	(list 'display display)
 	(list 'equal? equal?)
 	(list '< <)
+	(list 'not not)
 ;;      more primitives
         ))
 
