@@ -11,6 +11,7 @@
 	((let*? exp) (eval (let*->nested-lets exp) env))
 	((do? exp) (eval-do exp env))
 	((while? exp) (eval-while exp env))
+	((for? exp) (eval (for->let-while exp) env))
 	((lambda? exp)
          (make-procedure (lambda-parameters exp)
                          (lambda-body exp)
@@ -24,6 +25,7 @@
         (else
          (error "Unknown expression type -- EVAL" exp))))
 
+;;; 
 ;;; (do <actions> while <test>)
 ;;;
 ;;; e.g.
@@ -42,26 +44,7 @@
   (eval-sequence (do-actions exp) env)	; Evaluate the actions at least once
   (do-iter exp))
 
-;;; (for <bindings> <test> <update> <body>)
-;;;
-;;; e.g.
-;;;
-;;;   (for ((i random) (j random)) (prime? (+ i j)) ((define i (random)) (define j random))
-;;;     (display (+ i j)))
 ;;; 
-;; (define (for? exp) (tagged-list? exp 'for))
-;; (define (for-bindings exp) (cadr exp))
-;; (define (first-binding binding) (car bindings))
-;; (define (rest-binding binding) (cdr bindings))
-;; (define (for-test exp) (caddr exp))
-;; (define (for-updates exp) (cadddr exp))
-;; (define (for-body exp) (cddddr exp))
-;; (define (eval-for exp env)
-;;   (let ((bindings (for-bindings exp))
-;; 	(test (for-test exp))
-;; 	(update (for-update exp))
-;; 	(body (for-body exp)))))
-
 ;;; (while <condition> <body>)
 ;;;
 ;;; e.g.
@@ -71,6 +54,7 @@
 (define (while? exp) (tagged-list? exp 'while))
 (define (while-condition exp) (cadr exp))
 (define (while-body exp) (cddr exp))
+(define (make-while test body) (cons 'while (cons test body)))
 (define (eval-while exp env)
   (define (while-iter)
     (let ((condition (while-condition exp))
@@ -80,3 +64,34 @@
 	     (while-iter))
 	    (else 'done))))
   (while-iter))
+
+;;; 
+;;; (for <bindings> <test> <updates> <body>)
+;;;
+;;; e.g.
+;;;
+;;;   (for ((i 1)) (< i 5) ((define i (+ i 1)))
+;;;     (display i))
+;;;
+;;; We'll implement this as a derived expression. Thus, a `for' becomes:
+;;;
+;;;   (let <bindings>
+;;;     (while <test> <body> <update>))
+;;;
+;;; Hence
+;;;
+;;;   (let ((i 1))
+;;;     (while (< i 5) (display i) (define i (+ i 1))))
+;;;     
+(define (for? exp) (tagged-list? exp 'for))
+(define (for-bindings exp) (cadr exp))
+(define (for-test exp) (caddr exp))
+(define (for-updates exp) (cadddr exp))
+(define (for-body exp) (cddddr exp))
+(define (for->let-while exp)
+  (let ((bindings (for-bindings exp))
+	(test (for-test exp))
+	(updates (for-updates exp))
+	(body (for-body exp)))
+    (make-let bindings
+	      (make-while test (append body updates)))))
