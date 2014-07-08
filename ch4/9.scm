@@ -12,6 +12,7 @@
 	((do? exp) (eval-do exp env))
 	((while? exp) (eval-while exp env))
 	((for? exp) (eval (for->let-while exp) env))
+	((until? exp) (eval (until->while exp) env))
 	((lambda? exp)
          (make-procedure (lambda-parameters exp)
                          (lambda-body exp)
@@ -95,3 +96,18 @@
 	(body (for-body exp)))
     (make-let bindings
 	      (make-while test (append body updates)))))
+
+;;;
+;;; (until <condition> do <body>)
+;;;
+;;; We will implement this as a derived expression. It will be become:
+;;;
+;;; (while (not <condition>) <body>)
+(define (until? exp) (tagged-list? exp 'until))
+(define (until-condition exp) (cadr exp))
+(define (until-body exp) (cdddr exp))
+(define (until->while exp)
+  (let ((condition (until-condition exp))
+	(body (until-body exp)))
+    (make-while (list 'not condition)
+		body)))
