@@ -10,7 +10,8 @@
 	((let? exp) (eval (let->combination exp) env))
 	((let*? exp) (eval (let*->nested-lets exp) env))
 	((do? exp) (eval-do exp env))
-        ((lambda? exp)
+	((while? exp) (eval-while exp env))
+	((lambda? exp)
          (make-procedure (lambda-parameters exp)
                          (lambda-body exp)
                          env))
@@ -23,7 +24,12 @@
         (else
          (error "Unknown expression type -- EVAL" exp))))
 
-;;; (do (e1 e2 ... en) while f)
+;;; (do <actions> while <test>)
+;;;
+;;; e.g.
+;;;
+;;;   (do ((display i) (define i (inc i))) while (< i 10))
+;;; 
 (define (do? exp) (tagged-list? exp 'do))
 (define (do-actions exp) (cadr exp))
 (define (do-while-test exp) (cadddr exp))
@@ -35,3 +41,42 @@
 	  (else 'done)))
   (eval-sequence (do-actions exp) env)	; Evaluate the actions at least once
   (do-iter exp))
+
+;;; (for <bindings> <test> <update> <body>)
+;;;
+;;; e.g.
+;;;
+;;;   (for ((i random) (j random)) (prime? (+ i j)) ((define i (random)) (define j random))
+;;;     (display (+ i j)))
+;;; 
+;; (define (for? exp) (tagged-list? exp 'for))
+;; (define (for-bindings exp) (cadr exp))
+;; (define (first-binding binding) (car bindings))
+;; (define (rest-binding binding) (cdr bindings))
+;; (define (for-test exp) (caddr exp))
+;; (define (for-updates exp) (cadddr exp))
+;; (define (for-body exp) (cddddr exp))
+;; (define (eval-for exp env)
+;;   (let ((bindings (for-bindings exp))
+;; 	(test (for-test exp))
+;; 	(update (for-update exp))
+;; 	(body (for-body exp)))))
+
+;;; (while <condition> <body>)
+;;;
+;;; e.g.
+;;;
+;;; (while (< i 10) (display i))
+;;;
+(define (while? exp) (tagged-list? exp 'while))
+(define (while-condition exp) (cadr exp))
+(define (while-body exp) (cddr exp))
+(define (eval-while exp env)
+  (define (while-iter)
+    (let ((condition (while-condition exp))
+	  (body (while-body exp)))
+      (cond ((true? (eval condition env))
+	     (eval-sequence body env)
+	     (while-iter))
+	    (else 'done))))
+  (while-iter))
