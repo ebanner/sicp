@@ -1,5 +1,7 @@
 ;;; EXERCISE 4.16
 
+(define (make-let tuples body) (cons 'let (cons tuples body)))
+
 ;;; a.
 (define (lookup-variable-value var env)
   (define (env-loop env)
@@ -39,7 +41,11 @@
 		      (scan-out-set!s body-exp)))
       body-exp))		       ; Othewise just return the body
 
+;;; c.
 (define (make-procedure parameters body env)
   (list 'procedure parameters (scan-out body) env))
 
-(define (make-let tuples body) (cons 'let (cons tuples body)))
+;;; It is better to install `scan-out' in `make-procedure' if the
+;;; procedure is going to be called many times and it is better to
+;;; install `scan-out' in `procedure-body' if the procedure is going
+;;; to be called a small number of times.
