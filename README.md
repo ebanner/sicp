@@ -28,11 +28,8 @@ With an undergraduate education in Computer Science under my belt I
 started going through this tome once more and have found that I am
 finally able to grasp the material. What's more is it's actually been fun!
 
-For Scheme development, I'm using [Geiser
-mode](http://www.nongnu.org/geiser/) in
-[emacs](http://www.gnu.org/software/emacs/) with
-[Guile](http://www.gnu.org/software/guile/) as my Scheme
-implementation. I chose Guile over mit-scheme because I like Guile's
-debugging interface better. For editing Scheme code, I'm using the
-amazing [ParEdit mode](http://www.emacswiki.org/emacs/ParEdit)
-mode. It makes editing Lisp code a joy.
+For Scheme development, I'm using
+[mit-scheme](http://www.nongnu.org/geiser/) with
+[emacs](http://www.gnu.org/software/emacs/). I'm also using the
+amazing [ParEdit mode](http://www.emacswiki.org/emacs/ParEdit). It
+makes editing Lisp code delightful.
