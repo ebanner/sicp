@@ -33,3 +33,19 @@ For Scheme development, I'm using
 [emacs](http://www.gnu.org/software/emacs/). I'm also using the
 amazing [ParEdit mode](http://www.emacswiki.org/emacs/ParEdit). It
 makes editing Lisp code delightful.
+
+## Emacs setup
+
+Installing scheme
+
+```
+ln -s mit-scheme scheme
+```
+
+In emacs
+
+```
+(setq exec-path (append '("/Users/edward/Downloads/mit-scheme-12.1/src/mit-scheme.app/Contents/Resources") exec-path))
+
+M-x run-scheme
+```
