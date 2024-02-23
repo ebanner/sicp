@@ -36,16 +36,28 @@ makes editing Lisp code delightful.
 
 ## Emacs setup
 
-Installing scheme
+### After installing scheme
 
 ```
-ln -s mit-scheme scheme
+ln -s mit-scheme scheme # so that emacs can find it
 ```
 
-In emacs
+### In emacs
+
+Add scheme to path
 
 ```
 (setq exec-path (append '("/Users/edward/Downloads/mit-scheme-12.1/src/mit-scheme.app/Contents/Resources") exec-path))
+```
 
+Start scheme REPL
+
+```
 M-x run-scheme
+```
+
+Connect buffer to REPL
+
+```
+M-x scheme-mode
 ```
